@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class MenuItem {
   final String title;
@@ -56,24 +57,26 @@ class HomeMenuItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.all(8),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(20),
-        gradient: LinearGradient(
-          colors: bgColors,
-          begin: Alignment.topCenter,
-          end: Alignment.bottomCenter
-        ),
-      ),
-      child: Column(
-        children: [
-          Icon(
-            icon,
-            color: Colors.white,
+    return GestureDetector(
+      onTap: () => context.push( route ),
+      child: Container(
+        padding: const EdgeInsets.all(8),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(20),
+          gradient: LinearGradient(
+            colors: bgColors,
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter
           ),
-          const SizedBox(height: 10,)
-        ],
+        ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Icon(icon,color: Colors.white,),
+            const SizedBox(height: 10,),
+            Text(title, textAlign: TextAlign.center, style: const TextStyle(color: Colors.white, fontSize: 10),),
+          ],
+        ),
       ),
     );
   }
