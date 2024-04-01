@@ -30,8 +30,32 @@ class _PokemonsViewState extends State<PokemonsView> {
           title: const Text('Pokemons'),
           floating: true,
           backgroundColor: Colors.white.withOpacity(0.8),
-        )
+        ),
+        _PokemonGrid()
       ],
+    );
+  }
+}
+
+class _PokemonGrid extends StatelessWidget {
+  const _PokemonGrid();
+
+  @override
+  Widget build(BuildContext context) {
+    return SliverGrid.builder(
+      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+        crossAxisCount: 3,
+        crossAxisSpacing: 2,
+        mainAxisSpacing: 2,
+      ),
+      itemBuilder: (context, index) {
+        return GestureDetector(
+          //TODO onTab
+          child: Image.network(
+            'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${index+1}.png',
+          ),
+        );
+      },
     );
   }
 }
