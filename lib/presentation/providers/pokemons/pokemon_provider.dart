@@ -6,7 +6,7 @@ final pokemonsRepositoryProvider = Provider<PokemonsRepository>((ref) {
   return PokemonsRepositoryImpl();
 });
 
-final PokemonProvider = FutureProvider.family<Pokemon, String>((ref, id) async {
+final pokemonProvider = FutureProvider.family<Pokemon, String>((ref, id) async {
   final pokemonsRepository = ref.watch(pokemonsRepositoryProvider);
   final (pokemon, error) = await pokemonsRepository.getPokemon(id);
   if (pokemon != null) return pokemon;

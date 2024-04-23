@@ -9,3 +9,4 @@ export 'package:flutter_compass/flutter_compass.dart';
 
 // ! Pokemons
 export 'pokemons/pokemon_list_provider.dart';
+export 'pokemons/pokemon_provider.dart';

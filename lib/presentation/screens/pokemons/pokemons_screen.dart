@@ -61,7 +61,7 @@ class PokemonsViewState extends ConsumerState<PokemonsView> {
           floating: true,
           backgroundColor: Colors.white.withOpacity(0.8),
         ),
-        _PokemonGrid()
+        const _PokemonGrid()
       ],
     );
   }

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'dart:math' show pi;
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:miscelaneos/presentation/providers/compass/compass_provider.dart';
 import 'package:miscelaneos/presentation/providers/permissions/permissions_provider.dart';
