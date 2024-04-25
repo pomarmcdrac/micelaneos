@@ -41,7 +41,7 @@ class _PokemonView extends StatelessWidget {
           IconButton(
             onPressed: () {
               SharePlugin.shareLink(
-                pokemon.spriteFront,
+                "https://deep-linking-omarmorales.vercel.app/pokemons/${pokemon.id}/",
                 'Mira este pokemon'
               );
             },
