@@ -22,22 +22,20 @@ class LocalAuthPlugin {
     return await auth.canCheckBiometrics;
   }
 
-  static Future<(bool, String)> authenticate() async {
+  static Future<(bool, String)> authenticate({ bool biometricOnly = false}) async {
 
     try {
 
-      final bool authenticated = await auth.authenticate(
+      final bool didAuthenticated = await auth.authenticate(
         localizedReason: 'Por favor autentícate para continuar',
         options: const AuthenticationOptions(
-          // biometricOnly: true // false podemos colocar el PIN
+          biometricOnly: true // false podemos colocar el PIN
         ),
       );
 
-      return (true, 'Success');
+      return (didAuthenticated, didAuthenticated ? 'Biometric authenticated' : 'Biometric not authenticated');
 
     } on PlatformException catch (e) {
-      print(e);
-
       if (e.code == auth_error.notEnrolled) return (false, 'Biometric not enrolled');
       if (e.code == auth_error.lockedOut) return (false, 'Biometric locked out');
       if (e.code == auth_error.notAvailable) return (false, 'Biometric not available');
